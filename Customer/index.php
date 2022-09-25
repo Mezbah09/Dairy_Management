@@ -129,7 +129,6 @@
                 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
                 <div class="row animated fadeInUp">
                     <div class="col-sm-12">
-                         
                          test
                     </div>
                     
@@ -158,7 +157,7 @@
     <!--Gallery with Magnific popup-->
     <script src="../assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
     <!--Examples-->
-    <script src="../assets/javascripts/examples/dashboard.js"></script>
+    <!--<script src="../assets/javascripts/examples/dashboard.js"></script>
 </body>
 
 

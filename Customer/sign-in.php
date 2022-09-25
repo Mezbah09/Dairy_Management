@@ -56,10 +56,10 @@
                             <a href="index.html" class="btn btn-primary btn-block">Sign in</a>
                         </div>
                         <div class="form-group text-center">
-                            <a href="pages_forgot-password.html">Forgot password?</a>
+                            
                             <hr/>
-                             <span>Don't have an account?</span>
-                            <a href="pages_register.html" class="btn btn-block mt-sm">Register</a>
+                            <span>Don't have an account?</span>
+                            <a href="register.php" class="btn btn-block mt-sm">Register</a>
                         </div>
                     </form>
                 </div>

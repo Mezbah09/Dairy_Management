@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
             <a class="btn btn-primary btn-block" href="Admin">Admin</a>
-            <a class="btn btn-primary btn-block" href="customer">Customer</a>
+            <a class="btn btn-primary btn-block" href="customer/sign-in.php">Customer</a>
             <a class="btn btn-primary btn-block" href="farmer">Farmer</a>
 
             </div>
