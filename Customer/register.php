@@ -27,7 +27,24 @@
         }
 
         if(count($input_errors)==0){
-            $result=mysqli_query($con, query:"INSERT INTO `customer`(`name`, `email`, `password`, `contact`, `address`) VALUES ('$name','$email','$password','$contact','$address')");
+            
+           $emali_check= mysqli_query($con,query:"SELECT * FROM `customer` WHERE `email`='$email'");
+            $emali_check_row=mysqli_num_rows($emali_check);
+            if($emali_check_row==0){
+                $password_hash= password_hash($password,algo:PASSWORD_DEFAULT);
+                $result=mysqli_query($con, query:"INSERT INTO `customer`(`name`, `email`, `password`, `contact`, `address`) VALUES ('$name','$email','$password_hash','$contact','$address')");
+
+            if($result){
+                $success="Registration Successfully!";
+            }
+            else{
+                $error="Something Wrong!";
+            }
+            }else{
+                $emali_exists="This email already exists";
+            }
+
+           
 
         }
 
@@ -74,6 +91,40 @@
         <!--LOGO-->
         <div class="logo">
         <h1 class="text-center">Dairy Management</h1>
+
+        <?php
+        if(isset($success)){
+            ?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+            <?=$success?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+            <?php
+        }
+        ?>
+
+        <?php
+        if(isset($error)){
+            ?>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+            <?=$error?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+            <?php
+        }
+        ?>
+
+<?php
+        if(isset($emali_exists)){
+            ?>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+            <?=$emali_exists?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+            <?php
+        }
+        ?>
+
         </div>
         <div class="box">
             <!--SIGN IN FORM-->
@@ -82,7 +133,7 @@
                     <form method="post" action="<?=$_SERVER['PHP_SELF'] ?>">
                         <div class="form-group mt-md">
                             <span class="input-with-icon">
-                                <input type="text" class="form-control" placeholder="Name" name="name">
+                                <input type="text" class="form-control" placeholder="Name" name="name" value="<?=isset($name) ? $name:'' ?>">
                                 <i class="fa fa-user"></i>
                             </span>
 
@@ -95,7 +146,7 @@
                         </div>
                         <div class="form-group mt-md">
                             <span class="input-with-icon">
-                                <input type="email" class="form-control" placeholder="Email" name="email" >
+                                <input type="email" class="form-control" placeholder="Email" name="email" value="<?=isset($email) ? $email:'' ?>">
                                 <i class="fa fa-envelope"></i>
                             </span>
 
@@ -121,7 +172,7 @@
                         </div>
                         <div class="form-group mt-md">
                             <span class="input-with-icon">
-                                <input type="text" class="form-control" placeholder="Contact Number" name="contact">
+                                <input type="text" class="form-control" placeholder="Contact Number" name="contact" value="<?=isset($contact) ? $contact:'' ?>">
                                 <i class="fa fa-user"></i>
                             </span>
 
@@ -134,7 +185,7 @@
                         </div>
                         <div class="form-group mt-md">
                             <span class="input-with-icon">
-                                <input type="text" class="form-control" placeholder="Address" name="address">
+                                <input type="text" class="form-control" placeholder="Address" name="address" value="<?=isset($address) ? $address:'' ?>">
                                 <i class="fa fa-home"></i>
                             </span>
 
