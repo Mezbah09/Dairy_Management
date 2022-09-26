@@ -1,3 +1,38 @@
+<?php
+require_once '../dbcon.php';
+
+if(isset($_POST['login'])){
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+
+    $result=mysqli_query($con, query:"SELECT * FROM `customer` WHERE `email`='$email';");
+    if (mysqli_num_rows($result)==1){
+        $row=mysqli_fetch_assoc($result);
+        if(password_verify($password, $row['password'])){
+            header('location: index.php');
+        }else{
+
+            $error="Password invalid";
+
+        }
+
+    }else{
+        $error="Email invalid";
+
+    }
+
+
+    
+    
+}
+
+
+
+?>
+
+
+
+
 <!doctype html>
 <html lang="en" class="fixed accounts sign-in">
 
@@ -28,6 +63,18 @@
         <!--LOGO-->
         <div class="logo">
             <h1 class="text-center">Dairy Management</h1>
+
+            <?php
+        if(isset($error)){
+            ?>
+            <div class="alert alert-danger alert-dismissible" role="alert">
+            <?=$error?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+            <?php
+        }
+        ?>
+
         </div>
         <div class="box">
             <!--SIGN IN FORM-->
@@ -36,7 +83,7 @@
                     <form method="post" action="<?=$_SERVER['PHP_SELF']?>">
                         <div class="form-group mt-md">
                             <span class="input-with-icon">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?=isset($email) ? $email:'' ?>">
                                 <i class="fa fa-envelope"></i>
                             </span>
                         </div>
@@ -54,7 +101,7 @@
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Sign in" class="btn btn-primary btn-block" name="login" >
-                            <a href="index.html" class="btn btn-primary btn-block">Sign in</a>
+                            
                         </div>
                         <div class="form-group text-center">
                         <a href="pages_forgot-password.html">Forgot password?</a>
