@@ -43,21 +43,7 @@
             }else{
                 $emali_exists="This email already exists";
             }
-
-           
-
         }
-
-
-        
-
-
-
-        /*
-        echo'<pre>';
-        print_r($_POST);
-        echo'</pre>';
-        */
     }
 ?>
 <!doctype html>
