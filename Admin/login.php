@@ -2,20 +2,19 @@
 require_once '../dbcon.php';
 
 session_start();
-if(isset($_SESSION['customer_login'])){
+if(isset($_SESSION['admin_login'])){
     header('location: index.php');
 }
-
 
 if(isset($_POST['login'])){
     $email=$_POST['email'];
     $password=$_POST['password'];
 
-    $result=mysqli_query($con, query:"SELECT * FROM `customer` WHERE `email`='$email';");
+    $result=mysqli_query($con, query:"SELECT * FROM `admin` WHERE `email`='$email';");
     if (mysqli_num_rows($result)==1){
         $row=mysqli_fetch_assoc($result);
-        if(password_verify($password, $row['password'])){
-            $_SESSION['customer_login']=$email;
+        if($row['password']==$password){
+            $_SESSION['admin_login']=$email;
             header('location: index.php');
         }else{
             $error="Password invalid";
@@ -98,9 +97,8 @@ if(isset($_POST['login'])){
                         </div>
                         <div class="form-group text-center">
                         <a href="pages_forgot-password.html">Forgot password?</a>
-                            <hr/>
-                            <span>Don't have an account?</span>
-                            <a href="register.php" class="btn btn-block mt-sm">Register</a>
+                            
+                            
                         </div>
                     </form>
                 </div>

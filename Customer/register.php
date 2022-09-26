@@ -1,6 +1,11 @@
 <?php
     require_once '../dbcon.php';
 
+    session_start();
+if(isset($_SESSION['customer_login'])){
+    header('location: index.php');
+}
+
     if(isset($_POST['customer_register'])){
         $name =$_POST['name'];
         $email =$_POST['email'];
