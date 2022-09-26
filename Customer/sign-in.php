@@ -11,27 +11,13 @@ if(isset($_POST['login'])){
         if(password_verify($password, $row['password'])){
             header('location: index.php');
         }else{
-
             $error="Password invalid";
-
         }
-
     }else{
         $error="Email invalid";
-
     }
-
-
-    
-    
 }
-
-
-
 ?>
-
-
-
 
 <!doctype html>
 <html lang="en" class="fixed accounts sign-in">
