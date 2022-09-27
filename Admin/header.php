@@ -3,6 +3,8 @@
 $page = explode('/',$_SERVER['PHP_SELF']);
 $page = end($page);
 
+require_once '../dbcon.php';
+
 session_start();
 if(!isset($_SESSION['admin_login'])){
     header('location: login.php');
@@ -39,6 +41,8 @@ if(!isset($_SESSION['admin_login'])){
     <link rel="stylesheet" href="../assets/vendor/toastr/toastr.min.css">
     <!--Magnific popup-->
     <link rel="stylesheet" href="../assets/vendor/magnific-popup/magnific-popup.css">
+    <!--dataTable-->
+    <link rel="stylesheet" href="../assets/vendor/data-table/media/css/dataTables.bootstrap.min.css">
     <!--TEMPLATE css-->
     <!-- ========================================================= -->
     <link rel="stylesheet" href="../assets/stylesheets/css/style.css">
@@ -122,7 +126,7 @@ if(!isset($_SESSION['admin_login'])){
                             <ul class="nav nav-left-lines" id="main-nav">
                                 <!--HOME-->
                                 <li class="<?=$page=='index.php'?'active-item':''?>"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
-                                <li class="<?=$page=='test.php'?'active-item':''?>"><a href="test.php"><i class="fa fa-user" aria-hidden="true"></i><span>test</span></a></li>
+                                <li class="<?=$page=='customer.php'?'active-item':''?>"><a href="customer.php"><i class="fa fa-users" aria-hidden="true"></i><span>customer</span></a></li>
                                 <!--UI ELEMENTENTS-->
                         
                             </ul>

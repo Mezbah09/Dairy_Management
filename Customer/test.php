@@ -8,7 +8,7 @@ require_once 'header.php';
                     <div class="leftside-content-header">
                     <ul class="breadcrumbs">
                         <li><i class="fa fa-home" aria-hidden="true"></i><a href="#">Dashboard</a></li>
-                        <li><a href="#">test</a></li>
+                        <li><a href="javascript:avoid(0)">test</a></li>
                     </ul>
                     </div>
                 </div>
