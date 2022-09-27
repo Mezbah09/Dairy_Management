@@ -48,14 +48,19 @@ if(isset($_POST['login'])){
 </head>
 
 <body>
-<div class="wrap">
+    
+
     <!-- page BODY -->
     <!-- ========================================================= -->
     <div class="page-body animated slideInDown">
         <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+        <div class="wrap">
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="../index.php">Home</a></li>
+        </ul>
         <!--LOGO-->
         <div class="logo">
-            <h1 class="text-center">Dairy Management</h1>
+            <h1 class="text-center">Customer Login</h1>
 
             <?php
         if(isset($error)){

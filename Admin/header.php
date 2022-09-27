@@ -1,5 +1,8 @@
 <?php
 
+$page = explode('/',$_SERVER['PHP_SELF']);
+$page = end($page);
+
 session_start();
 if(!isset($_SESSION['admin_login'])){
     header('location: login.php');
@@ -106,7 +109,7 @@ if(!isset($_SESSION['admin_login'])){
             <div class="left-sidebar">
                 <!-- left sidebar HEADER -->
                 <div class="left-sidebar-header">
-                    <div class="left-sidebar-title">Navigation</div>
+                    <div class="left-sidebar-title">DMS</div>
                     <div class="left-sidebar-toggle c-hamburger c-hamburger--htla hidden-xs" data-toggle-class="left-sidebar-collapsed" data-target="html">
                         <span></span>
                     </div>
@@ -118,7 +121,8 @@ if(!isset($_SESSION['admin_login'])){
                         <nav>
                             <ul class="nav nav-left-lines" id="main-nav">
                                 <!--HOME-->
-                                <li class="active-item"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
+                                <li class="<?=$page=='index.php'?'active-item':''?>"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
+                                <li class="<?=$page=='test.php'?'active-item':''?>"><a href="test.php"><i class="fa fa-user" aria-hidden="true"></i><span>test</span></a></li>
                                 <!--UI ELEMENTENTS-->
                         
                             </ul>
@@ -129,14 +133,5 @@ if(!isset($_SESSION['admin_login'])){
             <!-- CONTENT -->
             <!-- ========================================================= -->
             <div class="content">
-                <!-- content HEADER -->
-                <!-- ========================================================= -->
-                <div class="content-header">
-                    <!-- leftside content header -->
-                    <div class="leftside-content-header">
-                        <ul class="breadcrumbs">
-                            <li><i class="fa fa-home" aria-hidden="true"></i><a href="#">Dashboard</a></li>
-                        </ul>
-                    </div>
-                </div>
+            
                 

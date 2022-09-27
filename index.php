@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css">
 </head>
 <body>
+    <br>
+    <br>
+    <br>
     <div class="text-center" >
         <h1>Welcome to Dairy Management System</h1>
     </div>
@@ -23,7 +26,7 @@
             <div class="col-sm-4 col-sm-offset-4">
             <a class="btn btn-primary btn-block" href="Admin/login.php">Admin</a>
             <a class="btn btn-primary btn-block" href="customer/sign-in.php">Customer</a>
-            <a class="btn btn-primary btn-block" href="farmer">Farmer</a>
+            <a class="btn btn-primary btn-block" href="depositor">Depositor</a>
 
             </div>
         </div>
