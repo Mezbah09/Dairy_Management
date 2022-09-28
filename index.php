@@ -26,7 +26,7 @@
             <div class="col-sm-4 col-sm-offset-4">
             <a class="btn btn-primary btn-block" href="Admin/login.php">Admin</a>
             <a class="btn btn-primary btn-block" href="customer/sign-in.php">Customer</a>
-            <a class="btn btn-primary btn-block" href="depositor">Depositor</a>
+            <a class="btn btn-primary btn-block" href="depositor/sign-in.php">Depositor</a>
 
             </div>
         </div>
