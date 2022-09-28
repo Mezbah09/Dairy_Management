@@ -127,7 +127,7 @@ if(!isset($_SESSION['admin_login'])){
                                 <!--HOME-->
                                 <li class="<?=$page=='index.php'?'active-item':''?>"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
                                 <li class="<?=$page=='customer.php'?'active-item':''?>"><a href="customer.php"><i class="fa fa-users" aria-hidden="true"></i><span>customer</span></a></li>
-                                <li class="has-child-item close-item <?=$page=='add_depositor.php' || 'manage_depositor.php'?'open-item':''?>">
+                                <li class="has-child-item close-item <?=$page=='add_depositor.php'?'open-item':''?><?=$page=='manage_depositor.php'?'open-item':''?>">
                                     <a><i class="fa fa-user" aria-hidden="true"></i><span>Depositor</span></a>
                                     <ul class="nav child-nav level-1">
                                         <li class="<?=$page=='add_depositor.php'?'active-item':''?>"><a href="add_depositor.php">Add depositor</a></li>
