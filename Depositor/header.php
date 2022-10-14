@@ -81,7 +81,7 @@ if(!isset($_SESSION['depositor_login'])){
                         </div>
                         <div class="user-info">
                             <span class="user-name">Mezbah</span>
-                            <span class="user-profile">Admin</span>
+                            <span class="user-profile">Depositor</span>
                         </div>
                         <i class="fa fa-plus icon-open" aria-hidden="true"></i>
                         <i class="fa fa-minus icon-close" aria-hidden="true"></i>

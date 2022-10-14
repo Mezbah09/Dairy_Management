@@ -80,7 +80,7 @@ if(!isset($_SESSION['admin_login'])){
                 <div class="header-section" id="user-headerbox">
                     <div class="user-header-wrap">
                         <div class="user-photo">
-                            <img alt="profile photo" src="../assets/images/avatar/avatar_user.jpg" />
+                            <img alt="profile photo" src="../assets/images/avatar/mezbah.jpg" />
                         </div>
                         <div class="user-info">
                             <span class="user-name">Mezbah</span>
@@ -132,9 +132,9 @@ if(!isset($_SESSION['admin_login'])){
                                     <ul class="nav child-nav level-1">
                                         <li class="<?=$page=='add_depositor.php'?'active-item':''?>"><a href="add_depositor.php">Add depositor</a></li>
                                         <li class="<?=$page=='manage_depositor.php'?'active-item':''?>"><a href="manage_depositor.php">Manage depositor</a></li>
-                                        
                                     </ul>
                                 </li>
+                                <li class="<?=$page=='deposit_milk.php'?'active-item':''?>"><a href="deposit_milk.php"><i class="fa fa-flask" aria-hidden="true"></i><span>Deposit Milk</span></a></li>
                                 <!--UI ELEMENTENTS-->
                         
                             </ul>

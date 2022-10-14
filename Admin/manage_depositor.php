@@ -13,7 +13,7 @@ require_once 'header.php';
                     <div class="leftside-content-header">
                     <ul class="breadcrumbs">
                         <li><i class="fa fa-home" aria-hidden="true"></i><a href="#">Dashboard</a></li>
-                        <li><a href="javascript:avoid(0)">Customers</a></li>
+                        <li><a href="javascript:avoid(0)">Manage Depositor</a></li>
                     </ul>
                     </div>
                 </div>
@@ -31,6 +31,10 @@ require_once 'header.php';
                                         <th>Email</th>
                                         <th>Contact</th>
                                         <th>Address</th>
+                                        <th>Quantity</th>
+                                        <th>At Rate</th>
+                                        <th>Deposit Date</th>
+                                        
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -43,6 +47,9 @@ require_once 'header.php';
                                             <td><?= $row["email"] ?></td>
                                             <td><?= $row["contact"] ?></td>
                                             <td><?= $row["address"] ?></td>
+                                            <td><?= $row["quantity"] ?></td>
+                                            <td><?= $row["at_rate"] ?></td>
+                                            <td><?= $row["datetime"] ?></td>
                                             </tr>
                                             <?php 
                                             }
@@ -60,9 +67,9 @@ require_once 'header.php';
         <?php
             require_once 'footer.php';
         ?>
-          </div>
+        </div>
                     
-     </div>
-          <?php
-               require_once 'footer.php';
-          ?>
+    </div>
+        <?php
+            require_once 'footer.php';
+        ?>
