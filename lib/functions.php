@@ -1,6 +1,36 @@
 <?php
 
 /**
+ * Check user is logged in or not
+ * 
+ * @return boolean
+ */
+if (!function_exists('is_logged_in')) {
+    function is_logged_in($key)
+    {
+        if (isset($_SESSION[$key . '_login']) && !empty($_SESSION[$key . '_login'])) {
+            return true;
+        }
+        return false;
+    }
+}
+
+/**
+ * If user is not logged in then redirect to login page
+ * 
+ * @return void
+ */
+if (!function_exists('redirect_if_not_logged_in')) {
+    function redirect_if_not_logged_in($user = 'admin', $path = 'login.php')
+    {
+        if (!is_logged_in($user)) {
+            header('location: ' . $path);
+            die;
+        }
+    }
+}
+
+/**
  * Run sql query 
  * @return mixed
  */
@@ -185,11 +215,13 @@ if (!function_exists('flash_message')) {
             return;
         }
 
-        $message = $_SESSION[$prefix . $identifier];
+        if (isset($_SESSION[$prefix . $identifier])) {
+            $value = $_SESSION[$prefix . $identifier];
+            unset($_SESSION[$prefix . $identifier]);
+            return $value;
+        }
 
-        unset($_SESSION[$prefix . $identifier]);
-
-        return $message ?? $default;
+        return $default;
     }
 }
 

@@ -1,15 +1,10 @@
 <?php
 
-$page = explode('/',$_SERVER['PHP_SELF']);
+$page = explode('/', $_SERVER['PHP_SELF']);
 $page = end($page);
 require_once '../lib/init.php';
 
-session_start();
-if(!isset($_SESSION['admin_login'])){
-    header('location: login.php');
-}
-
-
+redirect_if_not_logged_in('admin');
 
 ?>
 
@@ -24,7 +19,7 @@ if(!isset($_SESSION['admin_login'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Dairy Management</title>
-    
+
     <!--load progress bar-->
     <script src="../assets/vendor/pace/pace.min.js"></script>
     <link href="../assets/vendor/pace/pace-theme-minimal.css" rel="stylesheet" />
@@ -68,11 +63,11 @@ if(!isset($_SESSION['admin_login'])){
             <!-- RIGHTSIDE header -->
             <div class="rightside-header">
                 <div class="header-middle"></div>
-                
+
                 <!--NOCITE HEADERBOX-->
                 <div class="header-section hidden-xs" id="notice-headerbox">
-                    
-                
+
+
                     <div class="header-separator"></div>
                 </div>
                 <!--USER HEADERBOX -->
@@ -92,7 +87,7 @@ if(!isset($_SESSION['admin_login'])){
                         <div class="drop-content basic">
                             <ul>
                                 <li> <a href=""><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
-                            
+
                             </ul>
                         </div>
                     </div>
@@ -124,18 +119,18 @@ if(!isset($_SESSION['admin_login'])){
                         <nav>
                             <ul class="nav nav-left-lines" id="main-nav">
                                 <!--HOME-->
-                                <li class="<?=$page=='index.php'?'active-item':''?>"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
-                                <li class="<?=$page=='customer.php'?'active-item':''?>"><a href="customer.php"><i class="fa fa-users" aria-hidden="true"></i><span>customer</span></a></li>
-                                <li class="has-child-item close-item <?=$page=='add_depositor.php'?'open-item':''?><?=$page=='manage_depositor.php'?'open-item':''?>">
+                                <li class="<?= $page == 'index.php' ? 'active-item' : '' ?>"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
+                                <li class="<?= $page == 'customer.php' ? 'active-item' : '' ?>"><a href="customer.php"><i class="fa fa-users" aria-hidden="true"></i><span>customer</span></a></li>
+                                <li class="has-child-item close-item <?= $page == 'add_depositor.php' ? 'open-item' : '' ?><?= $page == 'manage_depositor.php' ? 'open-item' : '' ?>">
                                     <a><i class="fa fa-user" aria-hidden="true"></i><span>Depositor</span></a>
                                     <ul class="nav child-nav level-1">
-                                        <li class="<?=$page=='add_depositor.php'?'active-item':''?>"><a href="add_depositor.php">Add depositor</a></li>
-                                        <li class="<?=$page=='manage_depositor.php'?'active-item':''?>"><a href="manage_depositor.php">Manage depositor</a></li>
+                                        <li class="<?= $page == 'add_depositor.php' ? 'active-item' : '' ?>"><a href="add_depositor.php">Add depositor</a></li>
+                                        <li class="<?= $page == 'manage_depositor.php' ? 'active-item' : '' ?>"><a href="manage_depositor.php">Manage depositor</a></li>
                                     </ul>
                                 </li>
-                                <li class="<?=$page=='deposit_milk.php'?'active-item':''?>"><a href="deposit_milk.php"><i class="fa fa-flask" aria-hidden="true"></i><span>Deposit Milk</span></a></li>
+                                <li class="<?= $page == 'deposit_milk.php' ? 'active-item' : '' ?>"><a href="deposit_milk.php"><i class="fa fa-flask" aria-hidden="true"></i><span>Deposit Milk</span></a></li>
                                 <!--UI ELEMENTENTS-->
-                        
+
                             </ul>
                         </nav>
                     </div>
@@ -144,5 +139,3 @@ if(!isset($_SESSION['admin_login'])){
             <!-- CONTENT -->
             <!-- ========================================================= -->
             <div class="content">
-            
-                

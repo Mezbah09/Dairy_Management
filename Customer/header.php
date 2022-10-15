@@ -1,14 +1,9 @@
 <?php
-
-$page = explode('/',$_SERVER['PHP_SELF']);
+require_once '../lib/init.php';
+$page = explode('/', $_SERVER['PHP_SELF']);
 $page = end($page);
 
-
-session_start();
-if(!isset($_SESSION['customer_login'])){
-    header('location: sign-in.php');
-}
-
+redirect_if_not_logged_in('customer', 'sign-in.php');
 
 
 ?>
@@ -24,7 +19,7 @@ if(!isset($_SESSION['customer_login'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Dairy Management</title>
-    
+
     <!--load progress bar-->
     <script src="../assets/vendor/pace/pace.min.js"></script>
     <link href="../assets/vendor/pace/pace-theme-minimal.css" rel="stylesheet" />
@@ -66,11 +61,11 @@ if(!isset($_SESSION['customer_login'])){
             <!-- RIGHTSIDE header -->
             <div class="rightside-header">
                 <div class="header-middle"></div>
-                
+
                 <!--NOCITE HEADERBOX-->
                 <div class="header-section hidden-xs" id="notice-headerbox">
-                    
-                
+
+
                     <div class="header-separator"></div>
                 </div>
                 <!--USER HEADERBOX -->
@@ -90,7 +85,7 @@ if(!isset($_SESSION['customer_login'])){
                         <div class="drop-content basic">
                             <ul>
                                 <li> <a href=""><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
-                            
+
                             </ul>
                         </div>
                     </div>
@@ -122,10 +117,10 @@ if(!isset($_SESSION['customer_login'])){
                         <nav>
                             <ul class="nav nav-left-lines" id="main-nav">
                                 <!--HOME-->
-                                <li class="<?=$page=='index.php'?'active-item':''?>"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
-                                <li class="<?=$page=='test.php'?'active-item':''?>"><a href="test.php"><i class="fa fa-user" aria-hidden="true"></i><span>test</span></a></li>
+                                <li class="<?= $page == 'index.php' ? 'active-item' : '' ?>"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
+                                <li class="<?= $page == 'test.php' ? 'active-item' : '' ?>"><a href="test.php"><i class="fa fa-user" aria-hidden="true"></i><span>test</span></a></li>
                                 <!--UI ELEMENTENTS-->
-                        
+
                             </ul>
                         </nav>
                     </div>
@@ -134,4 +129,3 @@ if(!isset($_SESSION['customer_login'])){
             <!-- CONTENT -->
             <!-- ========================================================= -->
             <div class="content">
-            
