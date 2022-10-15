@@ -1,5 +1,5 @@
 <?php
-require_once '../dbcon.php';
+require_once '../lib/init.php';
 require_once 'header.php';
 
 ?>
@@ -19,7 +19,7 @@ require_once 'header.php';
                 <div class="row animated fadeInUp">
         <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
                     <div class="col-md-4 col-sm-offset-3">
-                                    <form>
+                                    <form action="add-deposite.php" method="POST">
                                         <h3 class="mb-md ">Deposit Milk</h3>
                                         <div class="form-group">
                                         
@@ -37,10 +37,10 @@ require_once 'header.php';
                                         </div>
                                         <div class="form-group">
                                             <label for="">Quantity in Liters</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" name="amount" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Deposit</button>
+                                            <button type="submit" class="btn btn-primary" name="depositor_transaction" value="Deposit">Deposit</button>
                                         </div>
                                     </form>
                     </div>

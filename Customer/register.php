@@ -1,5 +1,5 @@
 <?php
-    require_once '../dbcon.php';
+require_once '../lib/init.php';
 
     session_start();
 if(isset($_SESSION['customer_login'])){

@@ -1,5 +1,5 @@
 <?php
-require_once '../dbcon.php';
+require_once '../lib/init.php';
 require_once 'header.php';
 
 ?>

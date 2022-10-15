@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-require_once '../dbcon.php';
+require_once '../lib/init.php';
 
 //session_start();
 //if(isset($_SESSION['depositor_login'])){

@@ -2,8 +2,7 @@
 
 $page = explode('/',$_SERVER['PHP_SELF']);
 $page = end($page);
-
-require_once '../dbcon.php';
+require_once '../lib/init.php';
 
 session_start();
 if(!isset($_SESSION['admin_login'])){
