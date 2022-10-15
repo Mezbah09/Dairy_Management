@@ -25,6 +25,86 @@ if (!function_exists('runSql')) {
 }
 
 /**
+ * Run sql query 
+ * @return mixed
+ */
+if (!function_exists('insertSql')) {
+    function insertSql($tableName, $data = [])
+    {
+        global $con;
+
+        $sql = "INSERT INTO $tableName (";
+        $sql .= implode(', ', array_keys($data));
+        $sql .= ") VALUES ('";
+        $sql .= implode("', '", array_values($data));
+        $sql .= "')";
+
+        if (mysqli_query($con, $sql)) {
+            return true;
+        }
+        return false;
+    }
+}
+
+/**
+ * Run sql query 
+ * @return mixed
+ */
+if (!function_exists('updateSql')) {
+    function updateSql($tableName, $data = [], $where = [])
+    {
+        global $con;
+
+        $sql = "UPDATE $tableName SET ";
+        $sql .= implode(', ', array_map(
+            function ($v, $k) {
+                return sprintf("%s='%s'", $k, $v);
+            },
+            $data,
+            array_keys($data)
+        ));
+        $sql .= " WHERE ";
+        $sql .= implode(' AND ', array_map(
+            function ($v, $k) {
+                return sprintf("%s='%s'", $k, $v);
+            },
+            $where,
+            array_keys($where)
+        ));
+
+        if (mysqli_query($con, $sql)) {
+            return true;
+        }
+        return false;
+    }
+}
+
+/**
+ * Run sql query 
+ * @return mixed
+ */
+if (!function_exists('deleteSql')) {
+    function deleteSql($tableName, $where = [])
+    {
+        global $con;
+
+        $sql = "DELETE FROM $tableName WHERE ";
+        $sql .= implode(' AND ', array_map(
+            function ($v, $k) {
+                return sprintf("%s='%s'", $k, $v);
+            },
+            $where,
+            array_keys($where)
+        ));
+
+        if (mysqli_query($con, $sql)) {
+            return true;
+        }
+        return false;
+    }
+}
+
+/**
  * Get setting
  * 
  * @return mixed
@@ -83,5 +163,46 @@ if (!function_exists('dd')) {
     {
         dump(...func_get_args());
         die;
+    }
+}
+
+/**
+ * Flash message 
+ * 
+ * @param string|array $identifier
+ * @param mixed $default
+ * @return void
+ */
+if (!function_exists('flash_message')) {
+    function flash_message($identifier, $default = null)
+    {
+        $prefix = 'flash_message_';
+
+        if (is_array($identifier)) {
+            foreach ($identifier as $key => $value) {
+                $_SESSION[$prefix . $key] = $value;
+            }
+            return;
+        }
+
+        $message = $_SESSION[$prefix . $identifier];
+
+        unset($_SESSION[$prefix . $identifier]);
+
+        return $message ?? $default;
+    }
+}
+
+/**
+ * Show Alert Message
+ * 
+ * @param string $message
+ * @param string $type
+ * @return string
+ */
+if (!function_exists('alert_message')) {
+    function alert_message($message, $type = 'success')
+    {
+        return '<div class="alert alert-' . $type . '" role="alert">' . $message . '</div>';
     }
 }
