@@ -129,6 +129,15 @@ redirect_if_not_logged_in('admin');
                                     </ul>
                                 </li>
                                 <li class="<?= $page == 'deposit_milk.php' ? 'active-item' : '' ?>"><a href="deposit_milk.php"><i class="fa fa-flask" aria-hidden="true"></i><span>Deposit Milk</span></a></li>
+                                <li class="<?= $page == 'sell-milk.php' ? 'active-item' : '' ?>"><a href="sell-milk.php"><i class="fa fa-flask" aria-hidden="true"></i><span>Sell Milk</span></a></li>
+
+                                <li class="has-child-item close-item <?= $page == 'add_depositor.php' ? 'open-item' : '' ?><?= $page == 'manage_depositor.php' ? 'open-item' : '' ?>">
+                                    <a><i class="fa fa-user" aria-hidden="true"></i><span>Depositor List</span></a>
+                                    <ul class="nav child-nav level-1">
+                                        <li class="<?= $page == 'add_depositor.php' ? 'active-item' : '' ?>"><a href="add_depositor.php">New</a></li>
+                                        <li class="<?= $page == 'manage_depositor.php' ? 'active-item' : '' ?>"><a href="manage_depositor.php">List</a></li>
+                                    </ul>
+                                </li>
                                 <!--UI ELEMENTENTS-->
 
                             </ul>

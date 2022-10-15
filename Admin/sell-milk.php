@@ -12,7 +12,7 @@ require_once 'header.php';
     <div class="leftside-content-header">
         <ul class="breadcrumbs">
             <li><i class="fa fa-home" aria-hidden="true"></i><a href="#">Dashboard</a></li>
-            <li><a href="javascript:avoid(0)">Deposit Milk</a></li>
+            <li><a href="javascript:avoid(0)">Sell Milk</a></li>
         </ul>
     </div>
 </div>
@@ -22,21 +22,21 @@ require_once 'header.php';
         <?php if ($message = flash_message('message')) {
             echo alert_message($message, 'success');
         } ?>
-        <form action="actions/add-deposit.php" method="POST">
-            <h3 class="mb-md ">Deposit Milk</h3>
+        <form action="actions/new-sell.php" method="POST">
+            <h3 class="mb-md ">Sell Milk</h3>
             <div class="form-group">
 
-                <label for="">Select Depositor</label>
+                <label for="">Select Customer</label>
 
-                <select class="form-control custom-select" name="depositor" required>
-                    <option value="">Select Depositor</option>
+                <select class="form-control custom-select" name="customer_id" required>
+                    <option value="">Select Customer</option>
                     <?php
-                    $result = mysqli_query($con, "SELECT * FROM `depositor`");
-                    while ($row = mysqli_fetch_assoc($result)) { ?>
+                    $result = runSql("SELECT * FROM `customer`");
+                    foreach ($result as $row) { ?>
                         <option value="<?php echo $row['id']; ?>"><?php echo $row['id']; ?>-<?php echo $row['name']; ?></option>
                     <?php } ?>
                 </select>
-                <?php if ($message = flash_message('depositor')) : ?>
+                <?php if ($message = flash_message('customer')) : ?>
                     <span class="text-danger text-bold"><?php echo $message; ?></span>
                 <?php endif; ?>
             </div>
@@ -48,7 +48,7 @@ require_once 'header.php';
                 <?php endif; ?>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary" name="depositor_transaction" value="Deposit">Deposit</button>
+                <button type="submit" class="btn btn-primary" name="customer_transaction" value="Sell">Sell</button>
             </div>
         </form>
     </div>

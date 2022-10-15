@@ -1,6 +1,5 @@
 <?php
-require_once 'header.php';
-require_once '../lib/init.php';
+require_once '../../lib/init.php';
 
 if (isset($_POST['depositor'])) {
     $dep_id = $_POST['depositor'];
@@ -25,16 +24,16 @@ if (isset($_POST['depositor'])) {
             'date' => date('Y-m-d'),
         ];
 
-        if (insertSql('deposits', $data)) {
-            $message = "Depositor added successfully";
+        if (insertSql('depositor_transaction', $data)) {
+            $message = "Milk Deposit successfully";
         } else {
             $message = "Something went wrong";
         }
         flash_message(['message' => $message]);
-        header("Location: deposit_milk.php");
+        header("Location: ../deposit_milk.php");
         die;
     }
 
     flash_message($input_errors);
-    header("Location: deposit_milk.php");
+    header("Location: ../deposit_milk.php");
 }

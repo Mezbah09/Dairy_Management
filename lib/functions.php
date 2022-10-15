@@ -24,7 +24,7 @@ if (!function_exists('redirect_if_not_logged_in')) {
     function redirect_if_not_logged_in($user = 'admin', $path = 'login.php')
     {
         if (!is_logged_in($user)) {
-            header('location: ' . $path);
+            exit(header('location: ' . $path));
             die;
         }
     }
