@@ -22,10 +22,10 @@ require_once 'header.php';
 
                <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="panel widgetbox wbox-1 bg-darker-1">
-                         <a href="#">
+                         <a href="deposit_milk.php">
                               <div class="panel-content">
                                    <h1 class="title color-w"><i class="fa fa-money"></i>
-                                        <?= settings(DEPOSITOR_PRICE, 0) ?>
+                                        <?= settings(DEPOSITOR_PRICE, 0) ?><span class="currency">৳</span>
                                    </h1>
                                    <h4 class="subtitle color-lighter-1">Depositor Rate</h4>
                               </div>
@@ -41,7 +41,7 @@ require_once 'header.php';
                     <div class="panel widgetbox wbox-1 bg-darker-2 color-light">
                          <a href="manage_depositor.php">
                               <div class="panel-content">
-                                   <h1 class="title color-light-1"> <i class="fa fa-envelope"></i> <?= $total_depositor; ?> </h1>
+                                   <h1 class="title color-light-1"> <i class="fa fa-users"></i> <?= $total_depositor; ?> </h1>
                                    <h4 class="subtitle">Total Depositor</h4>
                               </div>
                          </a>
@@ -56,7 +56,7 @@ require_once 'header.php';
                     <div class="panel widgetbox wbox-1 bg-lighter-2 color-light">
                          <a href="customer.php">
                               <div class="panel-content">
-                                   <h1 class="title color-darker-2"> <i class="fa fa-user"></i> <?= $total_customer; ?> </h1>
+                                   <h1 class="title color-darker-2"> <i class="fa fa-users"></i> <?= $total_customer; ?> </h1>
                                    <h4 class="subtitle color-darker-1">Customer</h4>
                               </div>
                          </a>

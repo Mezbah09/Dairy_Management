@@ -118,7 +118,7 @@ redirect_if_not_logged_in('customer', 'sign-in.php');
                             <ul class="nav nav-left-lines" id="main-nav">
                                 <!--HOME-->
                                 <li class="<?= $page == 'index.php' ? 'active-item' : '' ?>"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
-                                <li class="<?= $page == 'test.php' ? 'active-item' : '' ?>"><a href="test.php"><i class="fa fa-user" aria-hidden="true"></i><span>test</span></a></li>
+                                <li class="<?= $page == 'test.php' ? 'active-item' : '' ?>"><a href="test.php"><i class="fa fa-user" aria-hidden="true"></i><span>Buy Milk</span></a></li>
                                 <!--UI ELEMENTENTS-->
 
                             </ul>

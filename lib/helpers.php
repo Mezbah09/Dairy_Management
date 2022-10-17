@@ -7,3 +7,10 @@ function milk_tank()
 
     return $totalDiposit['total'] - $totalSold['total'];
 }
+
+
+
+
+
+
+

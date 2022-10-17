@@ -119,8 +119,11 @@ redirect_if_not_logged_in('admin');
                         <nav>
                             <ul class="nav nav-left-lines" id="main-nav">
                                 <!--HOME-->
+                                <!---->
                                 <li class="<?= $page == 'index.php' ? 'active-item' : '' ?>"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
+                                <!--Customer-->
                                 <li class="<?= $page == 'customer.php' ? 'active-item' : '' ?>"><a href="customer.php"><i class="fa fa-users" aria-hidden="true"></i><span>customer</span></a></li>
+                                <!--Depositor-->
                                 <li class="has-child-item close-item <?= $page == 'add_depositor.php' ? 'open-item' : '' ?><?= $page == 'manage_depositor.php' ? 'open-item' : '' ?>">
                                     <a><i class="fa fa-user" aria-hidden="true"></i><span>Depositor</span></a>
                                     <ul class="nav child-nav level-1">
@@ -128,16 +131,18 @@ redirect_if_not_logged_in('admin');
                                         <li class="<?= $page == 'manage_depositor.php' ? 'active-item' : '' ?>"><a href="manage_depositor.php">Manage depositor</a></li>
                                     </ul>
                                 </li>
-                                <li class="<?= $page == 'deposit_milk.php' ? 'active-item' : '' ?>"><a href="deposit_milk.php"><i class="fa fa-flask" aria-hidden="true"></i><span>Deposit Milk</span></a></li>
-                                <li class="<?= $page == 'sell-milk.php' ? 'active-item' : '' ?>"><a href="sell-milk.php"><i class="fa fa-flask" aria-hidden="true"></i><span>Sell Milk</span></a></li>
-
-                                <li class="has-child-item close-item <?= $page == 'add_depositor.php' ? 'open-item' : '' ?><?= $page == 'manage_depositor.php' ? 'open-item' : '' ?>">
-                                    <a><i class="fa fa-user" aria-hidden="true"></i><span>Depositor List</span></a>
+                                <!--Deposit-->
+                                <li class="has-child-item close-item <?= $page == 'deposit_milk.php' ? 'open-item' : '' ?><?= $page == '#' ? 'open-item' : '' ?>">
+                                    <a><i class="fa fa-flask" aria-hidden="true"></i><span>Deposit</span></a>
                                     <ul class="nav child-nav level-1">
-                                        <li class="<?= $page == 'add_depositor.php' ? 'active-item' : '' ?>"><a href="add_depositor.php">New</a></li>
-                                        <li class="<?= $page == 'manage_depositor.php' ? 'active-item' : '' ?>"><a href="manage_depositor.php">List</a></li>
+                                        <li class="<?= $page == 'deposit_milk.php' ? 'active-item' : '' ?>"><a href="deposit_milk.php">Deposit Milk</a></li>
+                                        <li class="<?= $page == 'diposit_history.php' ? 'active-item' : '' ?>"><a href="diposit_history.php">Deposit History</a></li>
                                     </ul>
                                 </li>
+                                <!--sell milk-->
+                                <li class="<?= $page == 'sell-milk.php' ? 'active-item' : '' ?>"><a href="sell-milk.php"><i class="fa fa-flask" aria-hidden="true"></i><span>Sell Milk</span></a></li>
+
+                                
                                 <!--UI ELEMENTENTS-->
 
                             </ul>

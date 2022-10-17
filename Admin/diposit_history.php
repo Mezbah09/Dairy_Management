@@ -31,7 +31,10 @@ require_once 'header.php';
                                 <th>Email</th>
                                 <th>Contact</th>
                                 <th>Address</th>
-                                <th>Action</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                                <th>Deposit Date</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -44,9 +47,11 @@ require_once 'header.php';
                                     <td><?= $row["email"] ?></td>
                                     <td><?= $row["contact"] ?></td>
                                     <td><?= $row["address"] ?></td>
-                                    <td>
-                                        <a href="delete.php?depositor_delete=<?=base64_encode($row['id'])?>"   class="btn btn-danger" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash-o"></i></a>
-                                    </td>
+                                    <td><?= runSql("SELECT SUM(`amount`)as total FROM `depositor_transaction` WHERE depositor_id = '" . $row['id'] . "'", false)['total'] ?? 0 ?></td>
+                                    <td></td>
+                                    
+                                    <td><?= $row["datetime"] ?></td>
+                                    
                                 </tr>
                             <?php
                             }
