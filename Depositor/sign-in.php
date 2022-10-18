@@ -15,6 +15,7 @@ if (isset($_POST['login'])) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'])) {
             $_SESSION['depositor_login'] = $email;
+            $_SESSION['depositor_id'] = $row['id'];
             header('location: index.php');
         } else {
             $error = "Password invalid";
